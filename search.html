@@ -1,0 +1,68 @@
+<head>
+<title>Sora's Super Secret Safe Searching Site Shindig</title>
+</head>
+<style>
+body {
+background: black;
+color: white;
+font-size: 32px
+}
+a {
+font-size: 128px;
+font-family: Fira Code VF;
+margin: auto;
+}
+</style>
+<body>
+<div>
+
+<span id="asdfasdf">Searching For: </span>
+<h1 id="search"></h1>
+<br><br>Search on:<br>
+<br><a id="google"      href="">1. Google</a>
+<br><a id="duckduck"    href="">2. DuckDuckGo</a>
+<br><a id="wiki"        href="">3. wiki</a>
+</div>
+</body>
+
+
+<script>
+
+function SearchMe(){
+var hash = window.location.hash;
+hash = hash.replace("#", "").replace(/\%20/g, " ")
+var search = document.getElementById('search')
+var google = document.getElementById('google')
+var duckduck = document.getElementById('duckduck')
+var wiki = document.getElementById('wiki')
+
+google.href = "https://google.com/search?q=" + hash
+duckduck.href = "https://duckduckgo.com/?q=" + hash
+wiki.href = "https://en.wikipedia.org/wiki/Special:Search?search=" + hash
+
+search.innerHTML = hash
+}
+
+window.addEventListener('hashchange', function() {
+    SearchMe()
+})
+
+SearchMe()
+
+document.addEventListener("keypress", function(event) {
+    if (event.keyCode == 49) { //1
+        google.click()
+    }
+    if (event.keyCode == 50) { //2
+        duckduck.click()
+    }
+    if (event.keyCode == 51) { //3
+        wiki.click()
+    }
+
+  console.log(event.keyCode)
+  
+});
+
+
+</script>
