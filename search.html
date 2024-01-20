@@ -30,7 +30,11 @@ margin: auto;
 
 function SearchMe(){
 var hash = window.location.hash;
-hash = hash.replace("#", "").replace(/\%20/g, " ")
+
+if (hash.charAt(0) == "#") {
+    hash = hash.substring(1);
+}
+hash = decodeURI(hash)
 var search = document.getElementById('search')
 var google = document.getElementById('google')
 var duckduck = document.getElementById('duckduck')
