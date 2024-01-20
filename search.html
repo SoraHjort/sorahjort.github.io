@@ -34,7 +34,7 @@ var hash = window.location.hash;
 if (hash.charAt(0) == "#") {
     hash = hash.substring(1);
 }
-hash = decodeURI(hash)
+hash = decodeURIComponent(hash)
 var search = document.getElementById('search')
 var google = document.getElementById('google')
 var duckduck = document.getElementById('duckduck')
